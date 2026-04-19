@@ -1,0 +1,1258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WebDev From Zero — Build & Deploy Your First Website</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Progress bar -->
+<div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+
+<!-- Header -->
+<header class="header">
+  <div class="header-left">
+    <button class="menu-toggle" id="menu-toggle" onclick="toggleSidebar()">☰</button>
+    <a href="#" class="logo" onclick="goHome()">WebDev <span>From Zero</span></a>
+  </div>
+  <div class="header-right">
+    <span class="module-badge" id="module-badge">WebDev From Zero</span>
+  </div>
+</header>
+
+<!-- Layout -->
+<div class="layout">
+
+  <!-- Sidebar -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">Course Modules</div>
+    <ul class="module-list">
+      <li class="module-item" data-module="0"><a href="#" onclick="goHome();return false;"><span class="module-num">🏠</span><span class="module-name">Home</span></a></li>
+      <div class="sidebar-divider"></div>
+      <li class="module-item" data-module="1"><a href="#" onclick="showModule(1);return false;"><span class="module-num">01</span><span class="module-name">Introduction</span></a></li>
+      <li class="module-item" data-module="2"><a href="#" onclick="showModule(2);return false;"><span class="module-num">02</span><span class="module-name">Frontend</span></a></li>
+      <li class="module-item" data-module="3"><a href="#" onclick="showModule(3);return false;"><span class="module-num">03</span><span class="module-name">Backend (Node.js)</span></a></li>
+      <li class="module-item" data-module="4"><a href="#" onclick="showModule(4);return false;"><span class="module-num">04</span><span class="module-name">Connect Frontend ↔ Backend</span></a></li>
+      <li class="module-item" data-module="5"><a href="#" onclick="showModule(5);return false;"><span class="module-num">05</span><span class="module-name">Database (MySQL)</span></a></li>
+      <li class="module-item" data-module="6"><a href="#" onclick="showModule(6);return false;"><span class="module-num">06</span><span class="module-name">Connect Backend ↔ MySQL</span></a></li>
+      <li class="module-item" data-module="7"><a href="#" onclick="showModule(7);return false;"><span class="module-num">07</span><span class="module-name">Full Project</span></a></li>
+      <li class="module-item" data-module="8"><a href="#" onclick="showModule(8);return false;"><span class="module-num">08</span><span class="module-name">Folder Structure</span></a></li>
+      <li class="module-item" data-module="9"><a href="#" onclick="showModule(9);return false;"><span class="module-num">09</span><span class="module-name">Deployment</span></a></li>
+      <li class="module-item" data-module="10"><a href="#" onclick="showModule(10);return false;"><span class="module-num">10</span><span class="module-name">Tools</span></a></li>
+      <li class="module-item" data-module="11"><a href="#" onclick="showModule(11);return false;"><span class="module-num">11</span><span class="module-name">Common Errors</span></a></li>
+    </ul>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="content">
+
+    <!-- ===== HOME ===== -->
+    <section class="module-section active" id="module-home">
+      <div class="home-hero">
+        <h1>Build a Website<br><span>From Absolute Zero</span></h1>
+        <p class="subtitle">A step-by-step guide that takes you from "I know nothing" to "I built and deployed a full website with frontend, backend, and database."</p>
+        <div class="hero-path">
+          <div class="path-step">No experience</div>
+          <div class="path-arrow">→</div>
+          <div class="path-step">HTML + CSS + JS</div>
+          <div class="path-arrow">→</div>
+          <div class="path-step">Node.js backend</div>
+          <div class="path-arrow">→</div>
+          <div class="path-step">MySQL database</div>
+          <div class="path-arrow">→</div>
+          <div class="path-step">Live on the internet</div>
+        </div>
+        <button class="start-btn" onclick="showModule(1)">Start Learning →</button>
+      </div>
+      <div class="module-grid">
+        <div class="module-card" onclick="showModule(1)"><div class="card-num">Module 01</div><div class="card-title">Introduction</div><div class="card-desc">How the internet works, what happens when you visit a website.</div></div>
+        <div class="module-card" onclick="showModule(2)"><div class="card-num">Module 02</div><div class="card-title">Frontend</div><div class="card-desc">Create index.html, styles.css, and script.js — your first working page.</div></div>
+        <div class="module-card" onclick="showModule(3)"><div class="card-num">Module 03</div><div class="card-title">Backend</div><div class="card-desc">Build a Node.js server with Express to handle requests.</div></div>
+        <div class="module-card" onclick="showModule(4)"><div class="card-num">Module 04</div><div class="card-title">Connect Frontend ↔ Backend</div><div class="card-desc">Use fetch() to call your API and show the response on screen.</div></div>
+        <div class="module-card" onclick="showModule(5)"><div class="card-num">Module 05</div><div class="card-title">Database (MySQL)</div><div class="card-desc">Create tables, insert rows, and query data with SQL.</div></div>
+        <div class="module-card" onclick="showModule(6)"><div class="card-num">Module 06</div><div class="card-title">Connect Backend ↔ MySQL</div><div class="card-desc">Wire your Node.js server to MySQL to store and read real data.</div></div>
+        <div class="module-card" onclick="showModule(7)"><div class="card-num">Module 07</div><div class="card-title">Full Project</div><div class="card-desc">Build a complete form → API → database → display flow.</div></div>
+        <div class="module-card" onclick="showModule(8)"><div class="card-num">Module 08</div><div class="card-title">Folder Structure</div><div class="card-desc">Understand what every file is, what it does, and why it exists.</div></div>
+        <div class="module-card" onclick="showModule(9)"><div class="card-num">Module 09</div><div class="card-title">Deployment</div><div class="card-desc">Host your site live — frontend on Netlify, backend on Render.</div></div>
+        <div class="module-card" onclick="showModule(10)"><div class="card-num">Module 10</div><div class="card-title">Tools</div><div class="card-desc">VS Code, browser DevTools, and Node.js — your daily toolkit.</div></div>
+        <div class="module-card" onclick="showModule(11)"><div class="card-num">Module 11</div><div class="card-title">Common Errors</div><div class="card-desc">CORS, DB connection failures, deployment issues — and how to fix them.</div></div>
+      </div>
+    </section>
+
+    <!-- ===== MODULE 1: INTRODUCTION ===== -->
+    <section class="module-section" id="module-1">
+      <div class="tag-row"><span class="badge html">Concepts</span></div>
+      <h1>Introduction</h1>
+      <p class="module-intro">Before writing a single line of code, let's understand what a website actually is and how the internet delivers it to your screen. This foundation will make everything else click.</p>
+
+      <h2>What is a Website?</h2>
+      <p>A website is a collection of files stored on a computer somewhere in the world (called a <strong>server</strong>). When you visit a website, your computer (the <strong>client</strong>) asks that server to send those files, and your browser turns them into the page you see.</p>
+      <p>Every website is made of three types of files:</p>
+      <div class="table-wrap">
+        <table>
+          <tr><th>File Type</th><th>Extension</th><th>Purpose</th></tr>
+          <tr><td>HTML</td><td>.html</td><td>The structure — headings, paragraphs, buttons, forms</td></tr>
+          <tr><td>CSS</td><td>.css</td><td>The style — colors, fonts, layout, spacing</td></tr>
+          <tr><td>JavaScript</td><td>.js</td><td>The behavior — clicks, animations, talking to servers</td></tr>
+        </table>
+      </div>
+      <div class="callout info"><div class="callout-icon"></div><p><strong>Analogy:</strong> HTML is the skeleton, CSS is the skin and clothes, JavaScript is the muscles that make it move.</p></div>
+
+      <h2>How the Internet Works</h2>
+      <p>The internet is a global network of computers that can talk to each other using agreed-upon rules (called <strong>protocols</strong>). The most important one for websites is <strong>HTTP</strong> (HyperText Transfer Protocol).</p>
+      <div class="diagram">
+        <div class="flow">
+          <div class="flow-box highlight">Your Browser<br><small>Client</small></div>
+          <div class="flow-arrow">── HTTP Request ──▶</div>
+          <div class="flow-box green">Web Server<br><small>Server</small></div>
+          <div class="flow-arrow">◀── HTTP Response ──</div>
+          <div class="flow-box highlight">Your Browser<br><small>Gets the files</small></div>
+        </div>
+      </div>
+      <p>The server sends back HTML, CSS, and JavaScript files. Your browser reads them and draws the page.</p>
+
+      <h2>What Happens When You Type a URL?</h2>
+      <ol class="steps">
+        <li>You type <strong>https://example.com</strong> and press Enter.</li>
+        <li>Your browser asks a <strong>DNS server</strong>: "What is the IP address of example.com?" — like looking up a phone number in a directory.</li>
+        <li>The DNS server replies with an IP address like <strong>93.184.216.34</strong>.</li>
+        <li>Your browser connects to that IP address and sends an <strong>HTTP GET request</strong> asking for the homepage.</li>
+        <li>The server reads the request, finds the right files, and sends them back.</li>
+        <li>Your browser receives HTML, reads it, then fetches any linked CSS and JS files.</li>
+        <li>Your browser renders (draws) the page from all those files.</li>
+      </ol>
+      <div class="callout tip"><div class="callout-icon"></div><p>You just learned what most people who "use the internet" never understand. This is how every website on Earth works — from Google to your local bakery's homepage.</p></div>
+
+      <h2>Frontend vs Backend</h2>
+      <div class="table-wrap">
+        <table>
+          <tr><th>Term</th><th>Where it runs</th><th>What it does</th><th>Files</th></tr>
+          <tr><td>Frontend</td><td>Your browser</td><td>Everything the user sees and touches</td><td>index.html, styles.css, script.js</td></tr>
+          <tr><td>Backend</td><td>The server</td><td>Business logic, talking to databases, security</td><td>server.js, .env</td></tr>
+          <tr><td>Database</td><td>The server</td><td>Stores all the data permanently</td><td>MySQL tables</td></tr>
+        </table>
+      </div>
+
+      <div id="module-nav" class="module-nav">
+        <button class="btn-nav" id="btn-prev" onclick="prevModule()">← Previous</button>
+        <span class="nav-progress" id="nav-progress">1 / 11</span>
+        <button class="btn-nav primary" id="btn-next" onclick="nextModule()">Next →</button>
+      </div>
+    </section>
+
+    <!-- ===== MODULE 2: FRONTEND ===== -->
+    <section class="module-section" id="module-2">
+      <div class="tag-row"><span class="badge html">HTML</span><span class="badge css">CSS</span><span class="badge js">JavaScript</span></div>
+      <h1>Frontend</h1>
+      <p class="module-intro">Time to write real code. You'll create three files: <code>index.html</code>, <code>styles.css</code>, and <code>script.js</code>. By the end of this module you'll have a working web page that looks good and responds to clicks.</p>
+
+      <h2>Step 1 — Create Your Project Folder</h2>
+      <ol class="steps">
+        <li>Create a new folder on your Desktop. Name it <strong>mywebsite</strong>.</li>
+        <li>Open VS Code. Click <strong>File → Open Folder</strong> and select that folder.</li>
+        <li>You now have an empty project. All three files go in this same folder.</li>
+      </ol>
+
+      <h2>Step 2 — Create index.html</h2>
+      <p>This is your main page. Every website starts with a file named exactly <code>index.html</code> — the browser loads this file first automatically.</p>
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-filename">index.html</span>
+          <div style="display:flex;gap:8px;align-items:center"><span class="code-lang">HTML</span><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
+        </div>
+        <pre><code><span class="op">&lt;!DOCTYPE html&gt;</span>
+<span class="tag">&lt;html</span> <span class="attr">lang</span>=<span class="val">"en"</span><span class="tag">&gt;</span>
+<span class="tag">&lt;head&gt;</span>
+  <span class="tag">&lt;meta</span> <span class="attr">charset</span>=<span class="val">"UTF-8"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;meta</span> <span class="attr">name</span>=<span class="val">"viewport"</span> <span class="attr">content</span>=<span class="val">"width=device-width, initial-scale=1.0"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;title&gt;</span>My First Website<span class="tag">&lt;/title&gt;</span>
+  <span class="tag">&lt;link</span> <span class="attr">rel</span>=<span class="val">"stylesheet"</span> <span class="attr">href</span>=<span class="val">"styles.css"</span><span class="tag">&gt;</span>
+<span class="tag">&lt;/head&gt;</span>
+<span class="tag">&lt;body&gt;</span>
+
+  <span class="tag">&lt;header&gt;</span>
+    <span class="tag">&lt;h1&gt;</span>Hello, World!<span class="tag">&lt;/h1&gt;</span>
+    <span class="tag">&lt;p&gt;</span>My first ever website.<span class="tag">&lt;/p&gt;</span>
+  <span class="tag">&lt;/header&gt;</span>
+
+  <span class="tag">&lt;main&gt;</span>
+    <span class="tag">&lt;h2&gt;</span>About Me<span class="tag">&lt;/h2&gt;</span>
+    <span class="tag">&lt;p&gt;</span>I am learning to build websites from scratch!<span class="tag">&lt;/p&gt;</span>
+
+    <span class="tag">&lt;button</span> <span class="attr">id</span>=<span class="val">"myBtn"</span><span class="tag">&gt;</span>Click Me<span class="tag">&lt;/button&gt;</span>
+    <span class="tag">&lt;p</span> <span class="attr">id</span>=<span class="val">"message"</span><span class="tag">&gt;&lt;/p&gt;</span>
+  <span class="tag">&lt;/main&gt;</span>
+
+  <span class="tag">&lt;footer&gt;</span>
+    <span class="tag">&lt;p&gt;</span>Built by me &#x1F4AA;<span class="tag">&lt;/p&gt;</span>
+  <span class="tag">&lt;/footer&gt;</span>
+
+  <span class="cmt">&lt;!-- JavaScript goes at the bottom, before &lt;/body&gt; --&gt;</span>
+  <span class="tag">&lt;script</span> <span class="attr">src</span>=<span class="val">"script.js"</span><span class="tag">&gt;&lt;/script&gt;</span>
+<span class="tag">&lt;/body&gt;</span>
+<span class="tag">&lt;/html&gt;</span></code></pre>
+      </div>
+      <div class="callout info"><div class="callout-icon"></div><p><strong>Why index.html?</strong> Web servers are configured to look for a file named <code>index.html</code> when someone visits a folder. It's a universal convention.</p></div>
+
+      <h3>Anatomy of an HTML File</h3>
+      <div class="table-wrap">
+        <table>
+          <tr><th>Tag</th><th>What it does</th></tr>
+          <tr><td><code>&lt;!DOCTYPE html&gt;</code></td><td>Tells the browser this is a modern HTML5 document</td></tr>
+          <tr><td><code>&lt;html&gt;</code></td><td>The root container for the entire page</td></tr>
+          <tr><td><code>&lt;head&gt;</code></td><td>Invisible settings — title, linked CSS, metadata</td></tr>
+          <tr><td><code>&lt;body&gt;</code></td><td>Everything the user actually sees</td></tr>
+          <tr><td><code>&lt;link rel="stylesheet"&gt;</code></td><td>Connects your CSS file to this HTML file</td></tr>
+          <tr><td><code>&lt;script src="..."&gt;</code></td><td>Connects your JavaScript file</td></tr>
+        </table>
+      </div>
+
+      <h2>Step 3 — Create styles.css</h2>
+      <p>Create a new file in the same folder. Name it exactly <code>styles.css</code>. This file controls how everything looks.</p>
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-filename">styles.css</span>
+          <div style="display:flex;gap:8px;align-items:center"><span class="code-lang">CSS</span><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
+        </div>
+        <pre><code><span class="cmt">/* Reset default browser styles */</span>
+<span class="fn">*</span> {
+  <span class="attr">box-sizing</span>: <span class="val">border-box</span>;
+  <span class="attr">margin</span>: <span class="num">0</span>;
+  <span class="attr">padding</span>: <span class="num">0</span>;
+}
+
+<span class="fn">body</span> {
+  <span class="attr">font-family</span>: <span class="val">Arial, sans-serif</span>;
+  <span class="attr">background</span>: <span class="val">#f4f4f4</span>;
+  <span class="attr">color</span>: <span class="val">#333</span>;
+  <span class="attr">padding</span>: <span class="num">20px</span>;
+}
+
+<span class="fn">header</span> {
+  <span class="attr">background</span>: <span class="val">#3b82f6</span>;
+  <span class="attr">color</span>: <span class="val">white</span>;
+  <span class="attr">padding</span>: <span class="num">30px 20px</span>;
+  <span class="attr">border-radius</span>: <span class="num">8px</span>;
+  <span class="attr">margin-bottom</span>: <span class="num">24px</span>;
+}
+
+<span class="fn">h1</span> {
+  <span class="attr">font-size</span>: <span class="num">2rem</span>;
+  <span class="attr">margin-bottom</span>: <span class="num">8px</span>;
+}
+
+<span class="fn">main</span> {
+  <span class="attr">background</span>: <span class="val">white</span>;
+  <span class="attr">padding</span>: <span class="num">24px</span>;
+  <span class="attr">border-radius</span>: <span class="num">8px</span>;
+  <span class="attr">box-shadow</span>: <span class="num">0 2px 8px</span> <span class="val">rgba(0,0,0,0.1)</span>;
+  <span class="attr">margin-bottom</span>: <span class="num">24px</span>;
+}
+
+<span class="fn">button</span> {
+  <span class="attr">background</span>: <span class="val">#3b82f6</span>;
+  <span class="attr">color</span>: <span class="val">white</span>;
+  <span class="attr">border</span>: <span class="val">none</span>;
+  <span class="attr">padding</span>: <span class="num">10px 24px</span>;
+  <span class="attr">border-radius</span>: <span class="num">6px</span>;
+  <span class="attr">font-size</span>: <span class="num">1rem</span>;
+  <span class="attr">cursor</span>: <span class="val">pointer</span>;
+  <span class="attr">margin-top</span>: <span class="num">16px</span>;
+}
+
+<span class="fn">button:hover</span> {
+  <span class="attr">background</span>: <span class="val">#1d4ed8</span>;
+}
+
+<span class="fn">#message</span> {
+  <span class="attr">margin-top</span>: <span class="num">12px</span>;
+  <span class="attr">color</span>: <span class="val">#10b981</span>;
+  <span class="attr">font-weight</span>: <span class="val">bold</span>;
+}
+
+<span class="fn">footer</span> {
+  <span class="attr">text-align</span>: <span class="val">center</span>;
+  <span class="attr">color</span>: <span class="val">#888</span>;
+  <span class="attr">font-size</span>: <span class="num">0.85rem</span>;
+}</code></pre>
+      </div>
+      <div class="callout tip"><div class="callout-icon"></div><p>CSS uses <strong>selectors</strong> to target HTML elements and <strong>properties</strong> to style them. <code>button { color: white; }</code> means "select all buttons and make their text white".</p></div>
+
+      <h2>Step 4 — Create script.js</h2>
+      <p>Create a third file named exactly <code>script.js</code>. This adds interactive behavior.</p>
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-filename">script.js</span>
+          <div style="display:flex;gap:8px;align-items:center"><span class="code-lang">JavaScript</span><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
+        </div>
+        <pre><code><span class="cmt">// Wait until the page is fully loaded</span>
+<span class="fn">document</span>.<span class="fn">addEventListener</span>(<span class="str">'DOMContentLoaded'</span>, <span class="kw">function</span>() {
+
+  <span class="cmt">// Find the button element by its id</span>
+  <span class="kw">const</span> <span class="var">btn</span> = <span class="fn">document</span>.<span class="fn">getElementById</span>(<span class="str">'myBtn'</span>);
+
+  <span class="cmt">// Find the message paragraph</span>
+  <span class="kw">const</span> <span class="var">message</span> = <span class="fn">document</span>.<span class="fn">getElementById</span>(<span class="str">'message'</span>);
+
+  <span class="cmt">// When the button is clicked, run this function</span>
+  <span class="var">btn</span>.<span class="fn">addEventListener</span>(<span class="str">'click'</span>, <span class="kw">function</span>() {
+    <span class="var">message</span>.<span class="fn">textContent</span> = <span class="str">'You clicked the button! JavaScript is working!'</span>;
+  });
+
+});</code></pre>
+      </div>
+
+      <h2>Step 5 — Open in Browser</h2>
+      <ol class="steps">
+        <li>In VS Code, right-click on <code>index.html</code> and choose <strong>Open with Live Server</strong> (or just double-click the file to open it in your browser).</li>
+        <li>You should see your page with the blue header, the "Click Me" button, and a footer.</li>
+        <li>Click the button — you'll see a green message appear. That's JavaScript in action!</li>
+      </ol>
+
+      <h2>How the Three Files Connect</h2>
+      <div class="diagram">
+        <div class="flow">
+          <div class="flow-box highlight">index.html<br><small>structure</small></div>
+          <div class="flow-arrow">links to</div>
+          <div class="flow-box purple">styles.css<br><small>appearance</small></div>
+          <div class="flow-arrow">+</div>
+          <div class="flow-box green">script.js<br><small>behavior</small></div>
+        </div>
+      </div>
+      <p>The HTML file is the boss — it uses <code>&lt;link&gt;</code> to load CSS and <code>&lt;script&gt;</code> to load JavaScript. All three work together to create one page.</p>
+
+      <div id="module-nav" class="module-nav">
+        <button class="btn-nav" onclick="prevModule()">← Previous</button>
+        <span class="nav-progress">2 / 11</span>
+        <button class="btn-nav primary" onclick="nextModule()">Next →</button>
+      </div>
+    </section>
+
+    <!-- ===== MODULE 3: BACKEND ===== -->
+    <section class="module-section" id="module-3">
+      <div class="tag-row"><span class="badge nodejs">Node.js</span><span class="badge js">JavaScript</span></div>
+      <h1>Backend (Node.js)</h1>
+      <p class="module-intro">The frontend lives in the browser. The backend lives on a server. You'll build a backend using <strong>Node.js</strong> and <strong>Express</strong> — a popular, beginner-friendly combination.</p>
+
+      <h2>What is a Server?</h2>
+      <p>A server is a program that <strong>listens</strong> for requests and <strong>responds</strong> to them. When your frontend (running in the browser) needs data — say, a list of users — it sends a request to your backend server. The server fetches the data and sends it back.</p>
+      <div class="callout info"><div class="callout-icon"></div><p><strong>Node.js</strong> lets you run JavaScript on the server — the same language you already know from the frontend. <strong>Express</strong> is a library that makes building servers much simpler.</p></div>
+
+      <h2>Step 1 — Install Node.js</h2>
+      <ol class="steps">
+        <li>Go to <strong>nodejs.org</strong> and download the <strong>LTS version</strong> (Long-Term Support — the stable one).</li>
+        <li>Run the installer and click through the defaults.</li>
+        <li>Open a terminal (in VS Code: <strong>Terminal → New Terminal</strong>) and run:</li>
+      </ol>
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-filename">Terminal</span>
+          <div style="display:flex;gap:8px;align-items:center"><span class="code-lang">BASH</span><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
+        </div>
+        <pre><code>node --version
+npm --version</code></pre>
+      </div>
+      <p>If you see version numbers (like <code>v20.11.0</code>), Node.js is installed correctly.</p>
+
+      <h2>Step 2 — Create package.json</h2>
+      <p>Every Node.js project needs a <code>package.json</code> file. It's a configuration file that tracks your project name, version, and all the libraries (packages) your project uses.</p>
+      <p>In your project folder, run:</p>
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-filename">Terminal</span>
+          <div style="display:flex;gap:8px;align-items:center"><span class="code-lang">BASH</span><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
+        </div>
+        <pre><code>npm init -y</code></pre>
+      </div>
+      <p>This creates <code>package.json</code> automatically. The <code>-y</code> flag says "yes" to all default options.</p>
+
+      <h2>Step 3 — Install Express</h2>
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-filename">Terminal</span>
+          <div style="display:flex;gap:8px;align-items:center"><span class="code-lang">BASH</span><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
+        </div>
+        <pre><code>npm install express</code></pre>
+      </div>
+      <p>This downloads Express and saves it in a folder called <code>node_modules</code>. It also updates <code>package.json</code> with <code>"express"</code> in the dependencies list.</p>
+
+      <h2>Step 4 — Create server.js</h2>
+      <p>Create a new file named exactly <code>server.js</code> in your project folder.</p>
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-filename">server.js</span>
+          <div style="display:flex;gap:8px;align-items:center"><span class="code-lang">JavaScript</span><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
+        </div>
+        <pre><code><span class="cmt">// Import the Express library</span>
+<span class="kw">const</span> <span class="var">express</span> = <span class="fn">require</span>(<span class="str">'express'</span>);
+
+<span class="cmt">// Create an Express app</span>
+<span class="kw">const</span> <span class="var">app</span> = <span class="fn">express</span>();
+
+<span class="cmt">// Define what PORT the server will listen on</span>
+<span class="kw">const</span> <span class="var">PORT</span> = <span class="num">3000</span>;
+
+<span class="cmt">// Allow the server to read JSON from requests</span>
+<span class="var">app</span>.<span class="fn">use</span>(<span class="var">express</span>.<span class="fn">json</span>());
+
+<span class="cmt">// Serve your HTML/CSS/JS files from the same folder</span>
+<span class="var">app</span>.<span class="fn">use</span>(<span class="var">express</span>.<span class="fn">static</span>(<span class="str">'.'</span>));
+
+<span class="cmt">// Define a GET route at /api/hello</span>
+<span class="var">app</span>.<span class="fn">get</span>(<span class="str">'/api/hello'</span>, (<span class="var">req</span>, <span class="var">res</span>) => {
+  <span class="var">res</span>.<span class="fn">json</span>({ <span class="var">message</span>: <span class="str">'Hello from the server!'</span> });
+});
+
+<span class="cmt">// Start the server</span>
+<span class="var">app</span>.<span class="fn">listen</span>(<span class="var">PORT</span>, () => {
+  <span class="fn">console</span>.<span class="fn">log</span>(<span class="str">`Server running at http://localhost:${PORT}`</span>);
+});</code></pre>
+      </div>
+
+      <h2>Step 5 — Run the Server</h2>
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-filename">Terminal</span>
+          <div style="display:flex;gap:8px;align-items:center"><span class="code-lang">BASH</span><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
+        </div>
+        <pre><code>node server.js</code></pre>
+      </div>
+      <p>You should see: <code>Server running at http://localhost:3000</code></p>
+      <p>Open your browser and visit <strong>http://localhost:3000/api/hello</strong>. You'll see:</p>
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-filename">Browser Response</span>
+          <div style="display:flex;gap:8px;align-items:center"><span class="code-lang">JSON</span><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
+        </div>
+        <pre><code>{ "message": "Hello from the server!" }</code></pre>
+      </div>
+      <div class="callout tip"><div class="callout-icon"></div><p>You just built a real API endpoint! <code>/api/hello</code> is a <strong>route</strong>. When someone visits that URL, the server runs your function and sends back JSON data.</p></div>
+
+      <h2>Key Concepts</h2>
+      <div class="table-wrap">
+        <table>
+          <tr><th>Term</th><th>Meaning</th></tr>
+          <tr><td><code>require()</code></td><td>Import a library or file (like Python's import)</td></tr>
+          <tr><td><code>express()</code></td><td>Creates your app object — everything hangs off this</td></tr>
+          <tr><td><code>app.get()</code></td><td>Define a route that responds to GET requests</td></tr>
+          <tr><td><code>req</code></td><td>The incoming request (contains URL params, body, etc.)</td></tr>
+          <tr><td><code>res</code></td><td>The response you send back</td></tr>
+          <tr><td><code>res.json()</code></td><td>Send JSON data back to the client</td></tr>
+          <tr><td><code>app.listen(PORT)</code></td><td>Start the server on a specific port</td></tr>
+        </table>
+      </div>
+
+      <div class="module-nav">
+        <button class="btn-nav" onclick="prevModule()">← Previous</button>
+        <span class="nav-progress">3 / 11</span>
+        <button class="btn-nav primary" onclick="nextModule()">Next →</button>
+      </div>
+    </section>
+
+    <!-- ===== MODULE 4: CONNECT FRONTEND TO BACKEND ===== -->
+    <section class="module-section" id="module-4">
+      <div class="tag-row"><span class="badge js">JavaScript</span><span class="badge nodejs">Node.js</span></div>
+      <h1>Connect Frontend ↔ Backend</h1>
+      <p class="module-intro">Your frontend (in the browser) and backend (on the server) need to talk to each other. They do this via <strong>HTTP requests</strong>. In JavaScript, you use the <code>fetch()</code> function to send requests from the browser to your server.</p>
+
+      <h2>How HTTP Requests Work</h2>
+      <div class="table-wrap">
+        <table>
+          <tr><th>Method</th><th>Used for</th><th>Example</th></tr>
+          <tr><td><code>GET</code></td><td>Read / fetch data</td><td>Get list of users</td></tr>
+          <tr><td><code>POST</code></td><td>Create / send data</td><td>Submit a form</td></tr>
+          <tr><td><code>PUT</code></td><td>Update existing data</td><td>Edit a user profile</td></tr>
+          <tr><td><code>DELETE</code></td><td>Remove data</td><td>Delete a post</td></tr>
+        </table>
+      </div>
+
+      <h2>Step 1 — Add a Button to index.html</h2>
+      <p>Update your <code>index.html</code> — add a button to call the backend:</p>
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-filename">index.html — inside &lt;main&gt;</span>
+          <div style="display:flex;gap:8px;align-items:center"><span class="code-lang">HTML</span><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
+        </div>
+        <pre><code><span class="tag">&lt;button</span> <span class="attr">id</span>=<span class="val">"fetchBtn"</span><span class="tag">&gt;</span>Ask the Server<span class="tag">&lt;/button&gt;</span>
+<span class="tag">&lt;p</span> <span class="attr">id</span>=<span class="val">"serverResponse"</span><span class="tag">&gt;&lt;/p&gt;</span></code></pre>
+      </div>
+
+      <h2>Step 2 — Use fetch() in script.js</h2>
+      <p>Update <code>script.js</code> to call the backend when the button is clicked:</p>
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-filename">script.js</span>
+          <div style="display:flex;gap:8px;align-items:center"><span class="code-lang">JavaScript</span><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
+        </div>
+        <pre><code><span class="fn">document</span>.<span class="fn">getElementById</span>(<span class="str">'fetchBtn'</span>).<span class="fn">addEventListener</span>(<span class="str">'click'</span>, <span class="kw">async function</span>() {
+
+  <span class="cmt">// Send a GET request to our backend</span>
+  <span class="kw">const</span> <span class="var">response</span> = <span class="kw">await</span> <span class="fn">fetch</span>(<span class="str">'/api/hello'</span>);
+
+  <span class="cmt">// Parse the JSON response</span>
+  <span class="kw">const</span> <span class="var">data</span> = <span class="kw">await</span> <span class="var">response</span>.<span class="fn">json</span>();
+
+  <span class="cmt">// Display the message from the server</span>
+  <span class="fn">document</span>.<span class="fn">getElementById</span>(<span class="str">'serverResponse'</span>).<span class="fn">textContent</span> = <span class="var">data</span>.<span class="var">message</span>;
+
+});</code></pre>
+      </div>
+
+      <h2>Step 3 — Add a POST Route to server.js</h2>
+      <p>POST is used when the frontend sends data TO the server (like a form). Add this route to <code>server.js</code>:</p>
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-filename">server.js — add this route</span>
+          <div style="display:flex;gap:8px;align-items:center"><span class="code-lang">JavaScript</span><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
+        </div>
+        <pre><code><span class="cmt">// POST route — receives data from the frontend</span>
+<span class="var">app</span>.<span class="fn">post</span>(<span class="str">'/api/greet'</span>, (<span class="var">req</span>, <span class="var">res</span>) => {
+  <span class="kw">const</span> { <span class="var">name</span> } = <span class="var">req</span>.<span class="var">body</span>; <span class="cmt">// Get "name" from the request body</span>
+  <span class="var">res</span>.<span class="fn">json</span>({ <span class="var">message</span>: <span class="str">`Hello, ${name}! The server says hi.`</span> });
+});</code></pre>
+      </div>
+
+      <h2>Step 4 — Call the POST Route from the Frontend</h2>
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-filename">script.js — POST example</span>
+          <div style="display:flex;gap:8px;align-items:center"><span class="code-lang">JavaScript</span><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
+        </div>
+        <pre><code><span class="kw">async function</span> <span class="fn">greetUser</span>(<span class="var">name</span>) {
+  <span class="kw">const</span> <span class="var">response</span> = <span class="kw">await</span> <span class="fn">fetch</span>(<span class="str">'/api/greet'</span>, {
+    <span class="var">method</span>: <span class="str">'POST'</span>,
+    <span class="var">headers</span>: { <span class="str">'Content-Type'</span>: <span class="str">'application/json'</span> },
+    <span class="var">body</span>: <span class="fn">JSON</span>.<span class="fn">stringify</span>({ <span class="var">name</span>: <span class="var">name</span> })
+  });
+
+  <span class="kw">const</span> <span class="var">data</span> = <span class="kw">await</span> <span class="var">response</span>.<span class="fn">json</span>();
+  <span class="fn">console</span>.<span class="fn">log</span>(<span class="var">data</span>.<span class="var">message</span>);
+}
+
+<span class="fn">greetUser</span>(<span class="str">'Alice'</span>); <span class="cmt">// → "Hello, Alice! The server says hi."</span></code></pre>
+      </div>
+
+      <h2>The Full Flow</h2>
+      <div class="diagram">
+        <div class="flow">
+          <div class="flow-box highlight">User clicks button</div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-box highlight">fetch('/api/hello')</div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-box green">server.js handles it</div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-box green">res.json({...})</div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-box purple">Browser shows result</div>
+        </div>
+      </div>
+
+      <div class="module-nav">
+        <button class="btn-nav" onclick="prevModule()">← Previous</button>
+        <span class="nav-progress">4 / 11</span>
+        <button class="btn-nav primary" onclick="nextModule()">Next →</button>
+      </div>
+    </section>
+
+    <!-- ===== MODULE 5: DATABASE ===== -->
+    <section class="module-section" id="module-5">
+      <div class="tag-row"><span class="badge mysql">MySQL</span></div>
+      <h1>Database (MySQL)</h1>
+      <p class="module-intro">A database stores your data permanently. Without a database, all your data disappears when the server restarts. <strong>MySQL</strong> is one of the most popular databases in the world — it stores data in tables, like spreadsheets.</p>
+
+      <h2>What is a Database?</h2>
+      <p>Think of a database as a collection of <strong>tables</strong>. Each table is like a spreadsheet:</p>
+      <div class="diagram">
+        <div style="overflow-x:auto">
+          <table style="min-width:400px;border:1px solid #e2e8f0;border-radius:8px;overflow:hidden">
+            <tr style="background:#f8fafc"><th style="padding:10px 16px">id</th><th style="padding:10px 16px">name</th><th style="padding:10px 16px">email</th></tr>
+            <tr><td style="padding:10px 16px;text-align:center;color:#3b82f6;font-weight:700">1</td><td style="padding:10px 16px">Alice</td><td style="padding:10px 16px">alice@example.com</td></tr>
+            <tr style="background:#f8fafc"><td style="padding:10px 16px;text-align:center;color:#3b82f6;font-weight:700">2</td><td style="padding:10px 16px">Bob</td><td style="padding:10px 16px">bob@example.com</td></tr>
+            <tr><td style="padding:10px 16px;text-align:center;color:#3b82f6;font-weight:700">3</td><td style="padding:10px 16px">Carol</td><td style="padding:10px 16px">carol@example.com</td></tr>
+          </table>
+        </div>
+      </div>
+      <p>This is a <code>users</code> table. Each row is one user. Each column is one piece of data. The <code>id</code> column auto-increments — MySQL assigns it automatically.</p>
+
+      <h2>Installing MySQL</h2>
+      <ol class="steps">
+        <li>Go to <strong>dev.mysql.com/downloads/mysql</strong> and download MySQL Community Server.</li>
+        <li>Run the installer. When asked to set a root password, <strong>write it down</strong> — you'll need it later.</li>
+        <li>After installation, open MySQL Workbench (installed alongside MySQL) or use the terminal.</li>
+      </ol>
+      <div class="callout warning"><div class="callout-icon"></div><p>Remember your MySQL <strong>root password</strong>. You'll use it to connect from Node.js. If you forget it, resetting it is painful.</p></div>
+
+      <h2>Creating Your Database</h2>
+      <p>Open MySQL Workbench (or the MySQL terminal) and run these SQL commands:</p>
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-filename">MySQL — setup.sql</span>
+          <div style="display:flex;gap:8px;align-items:center"><span class="code-lang">SQL</span><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
+        </div>
+        <pre><code><span class="cmt">-- Create a new database</span>
+<span class="sql-kw">CREATE DATABASE</span> myapp;
+
+<span class="cmt">-- Switch to using that database</span>
+<span class="sql-kw">USE</span> myapp;
+
+<span class="cmt">-- Create a users table</span>
+<span class="sql-kw">CREATE TABLE</span> users (
+  id    <span class="sql-type">INT</span> <span class="sql-kw">AUTO_INCREMENT PRIMARY KEY</span>,
+  name  <span class="sql-type">VARCHAR(100)</span> <span class="sql-kw">NOT NULL</span>,
+  email <span class="sql-type">VARCHAR(100)</span> <span class="sql-kw">NOT NULL UNIQUE</span>
+);
+
+<span class="cmt">-- Insert a test row</span>
+<span class="sql-kw">INSERT INTO</span> users (name, email)
+<span class="sql-kw">VALUES</span> (<span class="str">'Alice'</span>, <span class="str">'alice@example.com'</span>);
+
+<span class="cmt">-- Read all rows</span>
+<span class="sql-kw">SELECT</span> * <span class="sql-kw">FROM</span> users;</code></pre>
+      </div>
+
+      <h2>Essential SQL Commands</h2>
+      <div class="table-wrap">
+        <table>
+          <tr><th>SQL Command</th><th>What it does</th></tr>
+          <tr><td><code>CREATE DATABASE name</code></td><td>Create a new database</td></tr>
+          <tr><td><code>USE name</code></td><td>Select which database to work with</td></tr>
+          <tr><td><code>CREATE TABLE</code></td><td>Create a new table with defined columns</td></tr>
+          <tr><td><code>INSERT INTO</code></td><td>Add a new row to a table</td></tr>
+          <tr><td><code>SELECT * FROM</code></td><td>Read all rows from a table</td></tr>
+          <tr><td><code>WHERE id = 1</code></td><td>Filter to only matching rows</td></tr>
+          <tr><td><code>UPDATE table SET</code></td><td>Edit an existing row</td></tr>
+          <tr><td><code>DELETE FROM</code></td><td>Remove rows</td></tr>
+        </table>
+      </div>
+
+      <h2>Column Types</h2>
+      <div class="table-wrap">
+        <table>
+          <tr><th>Type</th><th>Used for</th><th>Example</th></tr>
+          <tr><td><code>INT</code></td><td>Whole numbers</td><td>id, age, count</td></tr>
+          <tr><td><code>VARCHAR(n)</code></td><td>Text up to n characters</td><td>name, email, title</td></tr>
+          <tr><td><code>TEXT</code></td><td>Long text</td><td>descriptions, blog posts</td></tr>
+          <tr><td><code>BOOLEAN</code></td><td>True or false</td><td>is_active, is_verified</td></tr>
+          <tr><td><code>DATETIME</code></td><td>Date and time</td><td>created_at, updated_at</td></tr>
+        </table>
+      </div>
+
+      <div class="module-nav">
+        <button class="btn-nav" onclick="prevModule()">← Previous</button>
+        <span class="nav-progress">5 / 11</span>
+        <button class="btn-nav primary" onclick="nextModule()">Next →</button>
+      </div>
+    </section>
+
+    <!-- ===== MODULE 6: BACKEND + MYSQL ===== -->
+    <section class="module-section" id="module-6">
+      <div class="tag-row"><span class="badge nodejs">Node.js</span><span class="badge mysql">MySQL</span></div>
+      <h1>Connect Backend ↔ MySQL</h1>
+      <p class="module-intro">Now you'll wire Node.js to MySQL. The backend will insert data into the database and read it back. You'll also learn about <code>.env</code> files — the right way to store secret credentials.</p>
+
+      <h2>Step 1 — Install mysql2 and dotenv</h2>
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-filename">Terminal</span>
+          <div style="display:flex;gap:8px;align-items:center"><span class="code-lang">BASH</span><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
+        </div>
+        <pre><code>npm install mysql2 dotenv</code></pre>
+      </div>
+      <p><code>mysql2</code> is the Node.js driver for MySQL. <code>dotenv</code> loads environment variables from a <code>.env</code> file.</p>
+
+      <h2>Step 2 — Create .env</h2>
+      <p>Create a file named exactly <code>.env</code> (yes, the dot is part of the name). Store your database credentials here.</p>
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-filename">.env</span>
+          <div style="display:flex;gap:8px;align-items:center"><span class="code-lang">ENV</span><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
+        </div>
+        <pre><code>DB_HOST=localhost
+DB_USER=root
+DB_PASSWORD=your_mysql_password_here
+DB_NAME=myapp
+PORT=3000</code></pre>
+      </div>
+      <div class="callout danger"><div class="callout-icon"></div><p><strong>Never commit .env to Git.</strong> Add <code>.env</code> to your <code>.gitignore</code> file. This file contains passwords — if you push it to GitHub, anyone can see your credentials.</p></div>
+
+      <h2>Step 3 — Create .gitignore</h2>
+      <p>Create a file named <code>.gitignore</code> to tell Git which files to ignore:</p>
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-filename">.gitignore</span>
+          <div style="display:flex;gap:8px;align-items:center"><span class="code-lang">TEXT</span><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
+        </div>
+        <pre><code>node_modules/
+.env</code></pre>
+      </div>
+
+      <h2>Step 4 — Update server.js with MySQL</h2>
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-filename">server.js</span>
+          <div style="display:flex;gap:8px;align-items:center"><span class="code-lang">JavaScript</span><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
+        </div>
+        <pre><code><span class="kw">require</span>(<span class="str">'dotenv'</span>).<span class="fn">config</span>(); <span class="cmt">// Load .env variables</span>
+
+<span class="kw">const</span> <span class="var">express</span> = <span class="fn">require</span>(<span class="str">'express'</span>);
+<span class="kw">const</span> <span class="var">mysql</span>   = <span class="fn">require</span>(<span class="str">'mysql2/promise'</span>);
+
+<span class="kw">const</span> <span class="var">app</span> = <span class="fn">express</span>();
+<span class="var">app</span>.<span class="fn">use</span>(<span class="var">express</span>.<span class="fn">json</span>());
+<span class="var">app</span>.<span class="fn">use</span>(<span class="var">express</span>.<span class="fn">static</span>(<span class="str">'.'</span>));
+
+<span class="cmt">// Create a connection pool (reuses connections efficiently)</span>
+<span class="kw">const</span> <span class="var">pool</span> = <span class="var">mysql</span>.<span class="fn">createPool</span>({
+  <span class="var">host</span>:     <span class="var">process</span>.<span class="var">env</span>.<span class="var">DB_HOST</span>,
+  <span class="var">user</span>:     <span class="var">process</span>.<span class="var">env</span>.<span class="var">DB_USER</span>,
+  <span class="var">password</span>: <span class="var">process</span>.<span class="var">env</span>.<span class="var">DB_PASSWORD</span>,
+  <span class="var">database</span>: <span class="var">process</span>.<span class="var">env</span>.<span class="var">DB_NAME</span>,
+  <span class="var">waitForConnections</span>: <span class="kw">true</span>,
+});
+
+<span class="cmt">// GET all users from the database</span>
+<span class="var">app</span>.<span class="fn">get</span>(<span class="str">'/api/users'</span>, <span class="kw">async</span> (<span class="var">req</span>, <span class="var">res</span>) => {
+  <span class="kw">try</span> {
+    <span class="kw">const</span> [<span class="var">rows</span>] = <span class="kw">await</span> <span class="var">pool</span>.<span class="fn">query</span>(<span class="str">'SELECT * FROM users'</span>);
+    <span class="var">res</span>.<span class="fn">json</span>(<span class="var">rows</span>);
+  } <span class="kw">catch</span> (<span class="var">err</span>) {
+    <span class="var">res</span>.<span class="fn">status</span>(<span class="num">500</span>).<span class="fn">json</span>({ <span class="var">error</span>: <span class="var">err</span>.<span class="var">message</span> });
+  }
+});
+
+<span class="cmt">// POST — add a new user to the database</span>
+<span class="var">app</span>.<span class="fn">post</span>(<span class="str">'/api/users'</span>, <span class="kw">async</span> (<span class="var">req</span>, <span class="var">res</span>) => {
+  <span class="kw">const</span> { <span class="var">name</span>, <span class="var">email</span> } = <span class="var">req</span>.<span class="var">body</span>;
+  <span class="kw">try</span> {
+    <span class="kw">const</span> [<span class="var">result</span>] = <span class="kw">await</span> <span class="var">pool</span>.<span class="fn">query</span>(
+      <span class="str">'INSERT INTO users (name, email) VALUES (?, ?)'</span>,
+      [<span class="var">name</span>, <span class="var">email</span>]      <span class="cmt">// ? placeholders prevent SQL injection</span>
+    );
+    <span class="var">res</span>.<span class="fn">json</span>({ <span class="var">id</span>: <span class="var">result</span>.<span class="var">insertId</span>, <span class="var">name</span>, <span class="var">email</span> });
+  } <span class="kw">catch</span> (<span class="var">err</span>) {
+    <span class="var">res</span>.<span class="fn">status</span>(<span class="num">500</span>).<span class="fn">json</span>({ <span class="var">error</span>: <span class="var">err</span>.<span class="var">message</span> });
+  }
+});
+
+<span class="var">app</span>.<span class="fn">listen</span>(<span class="var">process</span>.<span class="var">env</span>.<span class="var">PORT</span>, () => {
+  <span class="fn">console</span>.<span class="fn">log</span>(<span class="str">`Server running on port ${process.env.PORT}`</span>);
+});</code></pre>
+      </div>
+      <div class="callout tip"><div class="callout-icon"></div><p>Always use <strong>parameterized queries</strong> — the <code>?</code> placeholders. Never concatenate user input directly into SQL strings. That's called <strong>SQL injection</strong> and it's a serious security vulnerability.</p></div>
+
+      <h2>The Complete Data Flow</h2>
+      <div class="diagram">
+        <div class="flow" style="flex-wrap:wrap;gap:6px">
+          <div class="flow-box highlight">Browser<br><small>index.html + script.js</small></div>
+          <div class="flow-arrow">fetch POST →</div>
+          <div class="flow-box green">server.js<br><small>Express route</small></div>
+          <div class="flow-arrow">SQL query →</div>
+          <div class="flow-box purple">MySQL<br><small>users table</small></div>
+          <div class="flow-arrow">← rows</div>
+          <div class="flow-box green">server.js<br><small>res.json(rows)</small></div>
+          <div class="flow-arrow">← JSON</div>
+          <div class="flow-box highlight">Browser<br><small>displays result</small></div>
+        </div>
+      </div>
+
+      <div class="module-nav">
+        <button class="btn-nav" onclick="prevModule()">← Previous</button>
+        <span class="nav-progress">6 / 11</span>
+        <button class="btn-nav primary" onclick="nextModule()">Next →</button>
+      </div>
+    </section>
+
+    <!-- ===== MODULE 7: FULL PROJECT ===== -->
+    <section class="module-section" id="module-7">
+      <div class="tag-row"><span class="badge html">HTML</span><span class="badge css">CSS</span><span class="badge js">JavaScript</span><span class="badge nodejs">Node.js</span><span class="badge mysql">MySQL</span></div>
+      <h1>Full Project — User Registration App</h1>
+      <p class="module-intro">Let's build a complete working app: a form that lets users enter their name and email, saves it to MySQL, and displays all registered users — all connected end-to-end.</p>
+
+      <h2>What You'll Build</h2>
+      <ol class="steps">
+        <li>A form in <code>index.html</code> where users type their name and email.</li>
+        <li>A click handler in <code>script.js</code> that sends the data to the backend via <code>fetch()</code>.</li>
+        <li>A POST route in <code>server.js</code> that saves it to MySQL.</li>
+        <li>A GET route that fetches all users from MySQL and returns them.</li>
+        <li>The frontend displays the list of users on the page.</li>
+      </ol>
+
+      <h2>index.html — Full Version</h2>
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-filename">index.html</span>
+          <div style="display:flex;gap:8px;align-items:center"><span class="code-lang">HTML</span><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
+        </div>
+        <pre><code><span class="op">&lt;!DOCTYPE html&gt;</span>
+<span class="tag">&lt;html</span> <span class="attr">lang</span>=<span class="val">"en"</span><span class="tag">&gt;</span>
+<span class="tag">&lt;head&gt;</span>
+  <span class="tag">&lt;meta</span> <span class="attr">charset</span>=<span class="val">"UTF-8"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;title&gt;</span>User Registration<span class="tag">&lt;/title&gt;</span>
+  <span class="tag">&lt;link</span> <span class="attr">rel</span>=<span class="val">"stylesheet"</span> <span class="attr">href</span>=<span class="val">"styles.css"</span><span class="tag">&gt;</span>
+<span class="tag">&lt;/head&gt;</span>
+<span class="tag">&lt;body&gt;</span>
+  <span class="tag">&lt;h1&gt;</span>User Registration<span class="tag">&lt;/h1&gt;</span>
+
+  <span class="tag">&lt;form</span> <span class="attr">id</span>=<span class="val">"registerForm"</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;input</span> <span class="attr">type</span>=<span class="val">"text"</span>  <span class="attr">id</span>=<span class="val">"nameInput"</span>  <span class="attr">placeholder</span>=<span class="val">"Your name"</span>  <span class="attr">required</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;input</span> <span class="attr">type</span>=<span class="val">"email"</span> <span class="attr">id</span>=<span class="val">"emailInput"</span> <span class="attr">placeholder</span>=<span class="val">"Your email"</span> <span class="attr">required</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;button</span> <span class="attr">type</span>=<span class="val">"submit"</span><span class="tag">&gt;</span>Register<span class="tag">&lt;/button&gt;</span>
+  <span class="tag">&lt;/form&gt;</span>
+
+  <span class="tag">&lt;p</span> <span class="attr">id</span>=<span class="val">"status"</span><span class="tag">&gt;&lt;/p&gt;</span>
+
+  <span class="tag">&lt;h2&gt;</span>Registered Users<span class="tag">&lt;/h2&gt;</span>
+  <span class="tag">&lt;ul</span> <span class="attr">id</span>=<span class="val">"userList"</span><span class="tag">&gt;&lt;/ul&gt;</span>
+
+  <span class="tag">&lt;script</span> <span class="attr">src</span>=<span class="val">"script.js"</span><span class="tag">&gt;&lt;/script&gt;</span>
+<span class="tag">&lt;/body&gt;</span>
+<span class="tag">&lt;/html&gt;</span></code></pre>
+      </div>
+
+      <h2>script.js — Full Version</h2>
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-filename">script.js</span>
+          <div style="display:flex;gap:8px;align-items:center"><span class="code-lang">JavaScript</span><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
+        </div>
+        <pre><code><span class="cmt">// Load users when the page opens</span>
+<span class="fn">document</span>.<span class="fn">addEventListener</span>(<span class="str">'DOMContentLoaded'</span>, <span class="fn">loadUsers</span>);
+
+<span class="cmt">// Handle form submission</span>
+<span class="fn">document</span>.<span class="fn">getElementById</span>(<span class="str">'registerForm'</span>).<span class="fn">addEventListener</span>(<span class="str">'submit'</span>, <span class="kw">async function</span>(<span class="var">e</span>) {
+  <span class="var">e</span>.<span class="fn">preventDefault</span>(); <span class="cmt">// Stop form from reloading the page</span>
+
+  <span class="kw">const</span> <span class="var">name</span>  = <span class="fn">document</span>.<span class="fn">getElementById</span>(<span class="str">'nameInput'</span>).<span class="var">value</span>;
+  <span class="kw">const</span> <span class="var">email</span> = <span class="fn">document</span>.<span class="fn">getElementById</span>(<span class="str">'emailInput'</span>).<span class="var">value</span>;
+
+  <span class="kw">const</span> <span class="var">res</span> = <span class="kw">await</span> <span class="fn">fetch</span>(<span class="str">'/api/users'</span>, {
+    <span class="var">method</span>:  <span class="str">'POST'</span>,
+    <span class="var">headers</span>: { <span class="str">'Content-Type'</span>: <span class="str">'application/json'</span> },
+    <span class="var">body</span>:    <span class="fn">JSON</span>.<span class="fn">stringify</span>({ <span class="var">name</span>, <span class="var">email</span> })
+  });
+
+  <span class="kw">const</span> <span class="var">data</span> = <span class="kw">await</span> <span class="var">res</span>.<span class="fn">json</span>();
+
+  <span class="kw">if</span> (<span class="var">data</span>.<span class="var">error</span>) {
+    <span class="fn">document</span>.<span class="fn">getElementById</span>(<span class="str">'status'</span>).<span class="fn">textContent</span> = <span class="str">'Error: '</span> + <span class="var">data</span>.<span class="var">error</span>;
+  } <span class="kw">else</span> {
+    <span class="fn">document</span>.<span class="fn">getElementById</span>(<span class="str">'status'</span>).<span class="fn">textContent</span> = <span class="str">'Registered successfully!'</span>;
+    <span class="fn">document</span>.<span class="fn">getElementById</span>(<span class="str">'registerForm'</span>).<span class="fn">reset</span>();
+    <span class="fn">loadUsers</span>(); <span class="cmt">// Refresh the list</span>
+  }
+});
+
+<span class="kw">async function</span> <span class="fn">loadUsers</span>() {
+  <span class="kw">const</span> <span class="var">res</span>   = <span class="kw">await</span> <span class="fn">fetch</span>(<span class="str">'/api/users'</span>);
+  <span class="kw">const</span> <span class="var">users</span> = <span class="kw">await</span> <span class="var">res</span>.<span class="fn">json</span>();
+  <span class="kw">const</span> <span class="var">list</span>  = <span class="fn">document</span>.<span class="fn">getElementById</span>(<span class="str">'userList'</span>);
+
+  <span class="var">list</span>.<span class="fn">innerHTML</span> = <span class="var">users</span>.<span class="fn">map</span>(<span class="var">u</span> =>
+    <span class="str">`&lt;li&gt;&lt;strong&gt;${u.name}&lt;/strong&gt; — ${u.email}&lt;/li&gt;`</span>
+  ).<span class="fn">join</span>(<span class="str">''</span>);
+}</code></pre>
+      </div>
+
+      <h2>server.js — Full Version</h2>
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-filename">server.js</span>
+          <div style="display:flex;gap:8px;align-items:center"><span class="code-lang">JavaScript</span><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
+        </div>
+        <pre><code><span class="fn">require</span>(<span class="str">'dotenv'</span>).<span class="fn">config</span>();
+<span class="kw">const</span> <span class="var">express</span> = <span class="fn">require</span>(<span class="str">'express'</span>);
+<span class="kw">const</span> <span class="var">mysql</span>   = <span class="fn">require</span>(<span class="str">'mysql2/promise'</span>);
+
+<span class="kw">const</span> <span class="var">app</span>  = <span class="fn">express</span>();
+<span class="kw">const</span> <span class="var">pool</span> = <span class="var">mysql</span>.<span class="fn">createPool</span>({
+  <span class="var">host</span>:     <span class="var">process</span>.<span class="var">env</span>.<span class="var">DB_HOST</span>,
+  <span class="var">user</span>:     <span class="var">process</span>.<span class="var">env</span>.<span class="var">DB_USER</span>,
+  <span class="var">password</span>: <span class="var">process</span>.<span class="var">env</span>.<span class="var">DB_PASSWORD</span>,
+  <span class="var">database</span>: <span class="var">process</span>.<span class="var">env</span>.<span class="var">DB_NAME</span>,
+});
+
+<span class="var">app</span>.<span class="fn">use</span>(<span class="var">express</span>.<span class="fn">json</span>());
+<span class="var">app</span>.<span class="fn">use</span>(<span class="var">express</span>.<span class="fn">static</span>(<span class="str">'.'</span>));
+
+<span class="var">app</span>.<span class="fn">get</span>(<span class="str">'/api/users'</span>, <span class="kw">async</span> (<span class="var">req</span>, <span class="var">res</span>) => {
+  <span class="kw">const</span> [<span class="var">rows</span>] = <span class="kw">await</span> <span class="var">pool</span>.<span class="fn">query</span>(<span class="str">'SELECT * FROM users ORDER BY id DESC'</span>);
+  <span class="var">res</span>.<span class="fn">json</span>(<span class="var">rows</span>);
+});
+
+<span class="var">app</span>.<span class="fn">post</span>(<span class="str">'/api/users'</span>, <span class="kw">async</span> (<span class="var">req</span>, <span class="var">res</span>) => {
+  <span class="kw">const</span> { <span class="var">name</span>, <span class="var">email</span> } = <span class="var">req</span>.<span class="var">body</span>;
+  <span class="kw">if</span> (!<span class="var">name</span> || !<span class="var">email</span>) <span class="kw">return</span> <span class="var">res</span>.<span class="fn">status</span>(<span class="num">400</span>).<span class="fn">json</span>({ <span class="var">error</span>: <span class="str">'Name and email required'</span> });
+
+  <span class="kw">try</span> {
+    <span class="kw">const</span> [<span class="var">result</span>] = <span class="kw">await</span> <span class="var">pool</span>.<span class="fn">query</span>(
+      <span class="str">'INSERT INTO users (name, email) VALUES (?, ?)'</span>,
+      [<span class="var">name</span>, <span class="var">email</span>]
+    );
+    <span class="var">res</span>.<span class="fn">json</span>({ <span class="var">id</span>: <span class="var">result</span>.<span class="var">insertId</span>, <span class="var">name</span>, <span class="var">email</span> });
+  } <span class="kw">catch</span> (<span class="var">err</span>) {
+    <span class="var">res</span>.<span class="fn">status</span>(<span class="num">500</span>).<span class="fn">json</span>({ <span class="var">error</span>: <span class="var">err</span>.<span class="var">message</span> });
+  }
+});
+
+<span class="var">app</span>.<span class="fn">listen</span>(<span class="var">process</span>.<span class="var">env</span>.<span class="var">PORT</span> || <span class="num">3000</span>, () =>
+  <span class="fn">console</span>.<span class="fn">log</span>(<span class="str">'Server running on port 3000'</span>)
+);</code></pre>
+      </div>
+      <div class="callout tip"><div class="callout-icon"></div><p>Start the server with <code>node server.js</code>, open <strong>http://localhost:3000</strong>, fill in the form, and watch users appear in real time — stored in MySQL.</p></div>
+
+      <div class="module-nav">
+        <button class="btn-nav" onclick="prevModule()">← Previous</button>
+        <span class="nav-progress">7 / 11</span>
+        <button class="btn-nav primary" onclick="nextModule()">Next →</button>
+      </div>
+    </section>
+
+    <!-- ===== MODULE 8: FOLDER STRUCTURE ===== -->
+    <section class="module-section" id="module-8">
+      <div class="tag-row"><span class="badge html">Structure</span></div>
+      <h1>Folder Structure</h1>
+      <p class="module-intro">Knowing what every file is and why it exists prevents confusion. Here is the complete folder structure for your project and a clear explanation of each file.</p>
+
+      <h2>Your Complete Project</h2>
+      <div class="file-tree">
+<span class="tree-folder">mywebsite/</span>
+│
+├── <span class="tree-file">index</span><span class="tree-ext">.html</span>       <span class="tree-desc">← Main page (what users see)</span>
+├── <span class="tree-file">styles</span><span class="tree-ext">.css</span>      <span class="tree-desc">← All visual styling</span>
+├── <span class="tree-file">script</span><span class="tree-ext">.js</span>       <span class="tree-desc">← Frontend JavaScript (runs in browser)</span>
+├── <span class="tree-file">server</span><span class="tree-ext">.js</span>       <span class="tree-desc">← Backend server (runs in Node.js)</span>
+├── <span class="tree-file">package</span><span class="tree-ext">.json</span>    <span class="tree-desc">← Project metadata + dependencies</span>
+├── <span class="tree-file">package-lock</span><span class="tree-ext">.json</span> <span class="tree-desc">← Exact versions (auto-generated)</span>
+├── <span class="tree-file">.env</span>            <span class="tree-desc">← Secret credentials (never commit!)</span>
+├── <span class="tree-file">.gitignore</span>      <span class="tree-desc">← Tells Git what NOT to track</span>
+└── <span class="tree-folder">node_modules/</span>   <span class="tree-desc">← Installed packages (auto-generated)</span></div>
+
+      <h2>File-by-File Breakdown</h2>
+      <div class="table-wrap">
+        <table>
+          <tr><th>File</th><th>Extension</th><th>Runs where</th><th>Purpose</th></tr>
+          <tr><td>index.html</td><td>.html</td><td>Browser</td><td>The HTML structure of your page — the only file the browser loads first</td></tr>
+          <tr><td>styles.css</td><td>.css</td><td>Browser</td><td>Colors, fonts, layout, spacing — makes HTML look good</td></tr>
+          <tr><td>script.js</td><td>.js</td><td>Browser</td><td>Frontend logic — event listeners, fetch() calls, DOM manipulation</td></tr>
+          <tr><td>server.js</td><td>.js</td><td>Node.js (server)</td><td>Backend server — handles API routes, talks to MySQL</td></tr>
+          <tr><td>package.json</td><td>.json</td><td>—</td><td>Lists your project name and all npm dependencies</td></tr>
+          <tr><td>.env</td><td>(none)</td><td>—</td><td>Secret environment variables — DB password, API keys</td></tr>
+          <tr><td>.gitignore</td><td>(none)</td><td>—</td><td>List of files Git should never track</td></tr>
+          <tr><td>node_modules/</td><td>(folder)</td><td>—</td><td>All downloaded npm packages — never edit manually</td></tr>
+        </table>
+      </div>
+
+      <h2>Important Rules</h2>
+      <ul>
+        <li><strong>index.html must be named exactly that</strong> — web servers look for this file automatically.</li>
+        <li><strong>Never edit node_modules</strong> — npm manages it. Delete and run <code>npm install</code> to restore it.</li>
+        <li><strong>Never commit .env</strong> — it contains passwords. Add it to .gitignore.</li>
+        <li><strong>package-lock.json</strong> should be committed — it locks exact dependency versions for your team.</li>
+        <li><strong>Extensions matter</strong> — <code>styles.css</code> not <code>styles.CSS</code>, <code>server.js</code> not <code>server.JS</code>.</li>
+      </ul>
+
+      <div class="callout tip"><div class="callout-icon"></div><p>When collaborators clone your project, they run <code>npm install</code> to regenerate <code>node_modules</code> from <code>package.json</code>. That's why node_modules is gitignored.</p></div>
+
+      <div class="module-nav">
+        <button class="btn-nav" onclick="prevModule()">← Previous</button>
+        <span class="nav-progress">8 / 11</span>
+        <button class="btn-nav primary" onclick="nextModule()">Next →</button>
+      </div>
+    </section>
+
+    <!-- ===== MODULE 9: DEPLOYMENT ===== -->
+    <section class="module-section" id="module-9">
+      <div class="tag-row"><span class="badge deploy">Deployment</span></div>
+      <h1>Deployment</h1>
+      <p class="module-intro">Your site works locally — now let's put it on the internet so anyone can visit it. You'll deploy the frontend to Netlify, the backend to Render, and the database to a cloud MySQL provider.</p>
+
+      <h2>The Deployment Plan</h2>
+      <div class="diagram">
+        <div class="flow">
+          <div class="flow-box highlight">Frontend<br><small>Netlify or GitHub Pages</small></div>
+          <div class="flow-arrow">calls API at →</div>
+          <div class="flow-box green">Backend<br><small>Render or Railway</small></div>
+          <div class="flow-arrow">queries →</div>
+          <div class="flow-box purple">Database<br><small>PlanetScale or Railway MySQL</small></div>
+        </div>
+      </div>
+
+      <h2>Part 1 — Deploy Frontend to Netlify</h2>
+      <p>Netlify hosts static files (HTML, CSS, JS) for free.</p>
+      <ol class="steps">
+        <li>Create a free account at <strong>netlify.com</strong>.</li>
+        <li>Push your project to GitHub (see steps below).</li>
+        <li>In Netlify, click <strong>Add New Site → Import from Git</strong>.</li>
+        <li>Connect your GitHub repo.</li>
+        <li>Set <strong>Build command</strong> to blank (no build step needed for plain HTML).</li>
+        <li>Set <strong>Publish directory</strong> to <code>.</code> (root folder).</li>
+        <li>Click <strong>Deploy</strong>. You'll get a live URL like <code>yoursite.netlify.app</code>.</li>
+      </ol>
+
+      <h3>Push to GitHub First</h3>
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-filename">Terminal — git setup</span>
+          <div style="display:flex;gap:8px;align-items:center"><span class="code-lang">BASH</span><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
+        </div>
+        <pre><code>git init
+git add .
+git commit -m "Initial commit"
+git branch -M main
+git remote add origin https://github.com/yourusername/mywebsite.git
+git push -u origin main</code></pre>
+      </div>
+
+      <h2>Part 2 — Deploy Backend to Render</h2>
+      <p>Render hosts Node.js servers for free (with some limits).</p>
+      <ol class="steps">
+        <li>Create a free account at <strong>render.com</strong>.</li>
+        <li>Click <strong>New → Web Service</strong>.</li>
+        <li>Connect your GitHub repo.</li>
+        <li>Set <strong>Build Command</strong> to <code>npm install</code>.</li>
+        <li>Set <strong>Start Command</strong> to <code>node server.js</code>.</li>
+        <li>Add your environment variables (DB_HOST, DB_USER, DB_PASSWORD, DB_NAME) in the <strong>Environment</strong> tab — <em>not</em> by uploading .env.</li>
+        <li>Click <strong>Create Web Service</strong>. You'll get a URL like <code>myapp.onrender.com</code>.</li>
+      </ol>
+      <div class="callout warning"><div class="callout-icon"></div><p>Free Render services <strong>spin down after 15 minutes of inactivity</strong> and take ~30 seconds to wake up on the next request. This is fine for learning — upgrade for production apps.</p></div>
+
+      <h2>Part 3 — Cloud MySQL Database</h2>
+      <p>Options for hosted MySQL:</p>
+      <div class="table-wrap">
+        <table>
+          <tr><th>Service</th><th>Free Tier</th><th>Notes</th></tr>
+          <tr><td>PlanetScale</td><td>Yes (hobby plan)</td><td>Modern, fast, branching like Git</td></tr>
+          <tr><td>Railway</td><td>$5 free credit</td><td>Easy setup, also hosts Node.js</td></tr>
+          <tr><td>Clever Cloud</td><td>Yes</td><td>Simple MySQL hosting</td></tr>
+          <tr><td>Aiven</td><td>Yes (trial)</td><td>Enterprise-grade, more complex</td></tr>
+        </table>
+      </div>
+      <p>After creating a cloud database, you'll get connection details (host, user, password, database name). Enter these as environment variables in Render.</p>
+
+      <h2>Part 4 — Update Frontend to Point to Deployed Backend</h2>
+      <p>In your frontend's <code>script.js</code>, the fetch URL needs to point to your deployed backend:</p>
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-filename">script.js — update for production</span>
+          <div style="display:flex;gap:8px;align-items:center"><span class="code-lang">JavaScript</span><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
+        </div>
+        <pre><code><span class="cmt">// Development: relative URL works because frontend + backend run together</span>
+<span class="kw">const</span> <span class="var">API</span> = <span class="fn">window</span>.<span class="var">location</span>.<span class="var">hostname</span> === <span class="str">'localhost'</span>
+  ? <span class="str">'http://localhost:3000'</span>
+  : <span class="str">'https://myapp.onrender.com'</span>; <span class="cmt">// Your Render URL</span>
+
+<span class="cmt">// Then use the API variable in all fetch calls:</span>
+<span class="kw">const</span> <span class="var">res</span> = <span class="kw">await</span> <span class="fn">fetch</span>(<span class="str">`${API}/api/users`</span>);</code></pre>
+      </div>
+
+      <h2>Part 5 — Enable CORS on the Backend</h2>
+      <p>When frontend and backend are on different domains, you must enable CORS (Cross-Origin Resource Sharing):</p>
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-filename">Terminal</span>
+          <div style="display:flex;gap:8px;align-items:center"><span class="code-lang">BASH</span><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
+        </div>
+        <pre><code>npm install cors</code></pre>
+      </div>
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-filename">server.js — add CORS</span>
+          <div style="display:flex;gap:8px;align-items:center"><span class="code-lang">JavaScript</span><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
+        </div>
+        <pre><code><span class="kw">const</span> <span class="var">cors</span> = <span class="fn">require</span>(<span class="str">'cors'</span>);
+
+<span class="cmt">// Allow requests from your Netlify frontend URL</span>
+<span class="var">app</span>.<span class="fn">use</span>(<span class="fn">cors</span>({
+  <span class="var">origin</span>: <span class="str">'https://yoursite.netlify.app'</span>
+}));</code></pre>
+      </div>
+
+      <div class="module-nav">
+        <button class="btn-nav" onclick="prevModule()">← Previous</button>
+        <span class="nav-progress">9 / 11</span>
+        <button class="btn-nav primary" onclick="nextModule()">Next →</button>
+      </div>
+    </section>
+
+    <!-- ===== MODULE 10: TOOLS ===== -->
+    <section class="module-section" id="module-10">
+      <div class="tag-row"><span class="badge js">Tools</span></div>
+      <h1>Developer Tools</h1>
+      <p class="module-intro">The right tools make development dramatically faster. Here are the three essentials every web developer uses every single day.</p>
+
+      <h2>1 — Visual Studio Code (VS Code)</h2>
+      <p>VS Code is the world's most popular code editor. It's free, fast, and has thousands of extensions.</p>
+      <p><strong>Download:</strong> code.visualstudio.com</p>
+      <h3>Essential Extensions</h3>
+      <div class="table-wrap">
+        <table>
+          <tr><th>Extension</th><th>What it does</th></tr>
+          <tr><td>Live Server</td><td>Auto-reloads your browser when you save a file</td></tr>
+          <tr><td>Prettier</td><td>Auto-formats your code on save</td></tr>
+          <tr><td>ESLint</td><td>Spots JavaScript errors before you run the code</td></tr>
+          <tr><td>GitLens</td><td>Shows who changed what line and when</td></tr>
+          <tr><td>MySQL (by cweijan)</td><td>Browse and query MySQL from inside VS Code</td></tr>
+          <tr><td>Thunder Client</td><td>Test API endpoints like Postman, but inside VS Code</td></tr>
+        </table>
+      </div>
+      <h3>Keyboard Shortcuts</h3>
+      <div class="table-wrap">
+        <table>
+          <tr><th>Shortcut</th><th>Action</th></tr>
+          <tr><td>Ctrl + S</td><td>Save file</td></tr>
+          <tr><td>Ctrl + `</td><td>Open terminal</td></tr>
+          <tr><td>Ctrl + P</td><td>Quick-open any file</td></tr>
+          <tr><td>Ctrl + Shift + P</td><td>Command palette</td></tr>
+          <tr><td>Alt + ↑/↓</td><td>Move line up/down</td></tr>
+          <tr><td>Ctrl + /</td><td>Toggle comment</td></tr>
+          <tr><td>Ctrl + D</td><td>Select next occurrence of selection</td></tr>
+        </table>
+      </div>
+
+      <h2>2 — Browser DevTools</h2>
+      <p>Every browser has built-in developer tools. Press <strong>F12</strong> (or right-click → Inspect) to open them. This is where you debug your frontend.</p>
+      <div class="table-wrap">
+        <table>
+          <tr><th>Tab</th><th>Use it for</th></tr>
+          <tr><td>Elements</td><td>See and edit the HTML/CSS live on the page</td></tr>
+          <tr><td>Console</td><td>See JavaScript errors and run JS commands</td></tr>
+          <tr><td>Network</td><td>See every HTTP request — check if your API calls work</td></tr>
+          <tr><td>Sources</td><td>Debug JavaScript with breakpoints</td></tr>
+          <tr><td>Application</td><td>View cookies, localStorage, and session data</td></tr>
+        </table>
+      </div>
+      <div class="callout tip"><div class="callout-icon"></div><p><strong>The Network tab is your best friend.</strong> If your fetch() call isn't working, open Network, click the request, and read the response. 90% of API bugs are diagnosed here.</p></div>
+
+      <h2>3 — Node.js and npm</h2>
+      <p><strong>Node.js</strong> runs JavaScript outside the browser (on your server). <strong>npm</strong> (Node Package Manager) comes with it and lets you install third-party libraries.</p>
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-filename">Common npm commands</span>
+          <div style="display:flex;gap:8px;align-items:center"><span class="code-lang">BASH</span><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
+        </div>
+        <pre><code>npm install express          <span class="cmt"># Install a package</span>
+npm install                  <span class="cmt"># Install all packages from package.json</span>
+npm install -g nodemon       <span class="cmt"># Install globally (available everywhere)</span>
+nodemon server.js            <span class="cmt"># Run server, auto-restart on file changes</span>
+npm list                     <span class="cmt"># Show installed packages</span>
+npm uninstall express        <span class="cmt"># Remove a package</span></code></pre>
+      </div>
+      <div class="callout tip"><div class="callout-icon"></div><p>Install <strong>nodemon</strong> globally: <code>npm install -g nodemon</code>. Then use <code>nodemon server.js</code> instead of <code>node server.js</code>. It restarts the server automatically every time you save a file — saves you tons of Ctrl+C.</p></div>
+
+      <div class="module-nav">
+        <button class="btn-nav" onclick="prevModule()">← Previous</button>
+        <span class="nav-progress">10 / 11</span>
+        <button class="btn-nav primary" onclick="nextModule()">Next →</button>
+      </div>
+    </section>
+
+    <!-- ===== MODULE 11: COMMON ERRORS ===== -->
+    <section class="module-section" id="module-11">
+      <div class="tag-row"><span class="badge html">Debugging</span></div>
+      <h1>Common Errors</h1>
+      <p class="module-intro">Every developer hits these errors. Here's exactly what they mean and how to fix them fast.</p>
+
+      <h2>Server Errors</h2>
+
+      <div class="error-card">
+        <div class="error-title">Cannot find module 'express'</div>
+        <div class="error-msg">Error: Cannot find module 'express'</div>
+        <div class="error-fix"><strong>Fix:</strong> You forgot to install dependencies. Run <code>npm install</code> in your project folder.</div>
+      </div>
+
+      <div class="error-card">
+        <div class="error-title">EADDRINUSE — Port already in use</div>
+        <div class="error-msg">Error: listen EADDRINUSE: address already in use :::3000</div>
+        <div class="error-fix"><strong>Fix:</strong> Another process is already using port 3000. Either stop it with <code>kill $(lsof -ti:3000)</code> (Mac/Linux) or change your PORT in .env to 3001.</div>
+      </div>
+
+      <div class="error-card warning">
+        <div class="error-title">process.env variables are undefined</div>
+        <div class="error-msg">DB_HOST is undefined</div>
+        <div class="error-fix"><strong>Fix:</strong> Make sure <code>require('dotenv').config()</code> is the <strong>very first line</strong> in server.js, before any other requires. Also check your .env file exists and has no typos.</div>
+      </div>
+
+      <h2>Database Errors</h2>
+
+      <div class="error-card">
+        <div class="error-title">Access denied for user 'root'</div>
+        <div class="error-msg">Error: Access denied for user 'root'@'localhost' (using password: YES)</div>
+        <div class="error-fix"><strong>Fix:</strong> Wrong password in your .env file. Check <code>DB_PASSWORD</code> matches the password you set when installing MySQL.</div>
+      </div>
+
+      <div class="error-card">
+        <div class="error-title">Unknown database</div>
+        <div class="error-msg">Error: Unknown database 'myapp'</div>
+        <div class="error-fix"><strong>Fix:</strong> You haven't created the database yet. Open MySQL Workbench and run <code>CREATE DATABASE myapp;</code></div>
+      </div>
+
+      <div class="error-card">
+        <div class="error-title">Table doesn't exist</div>
+        <div class="error-msg">Error: Table 'myapp.users' doesn't exist</div>
+        <div class="error-fix"><strong>Fix:</strong> Run the CREATE TABLE SQL from Module 5. Make sure you ran <code>USE myapp;</code> first.</div>
+      </div>
+
+      <h2>Frontend/CORS Errors</h2>
+
+      <div class="error-card warning">
+        <div class="error-title">CORS Policy Error</div>
+        <div class="error-msg">Access to fetch at 'https://myapp.onrender.com/api/users' from origin 'https://mysite.netlify.app' has been blocked by CORS policy</div>
+        <div class="error-fix"><strong>Fix:</strong> Add the <code>cors</code> package to your server (see Module 9). Make sure the <code>origin</code> in your cors config exactly matches your Netlify URL (no trailing slash).</div>
+      </div>
+
+      <div class="error-card warning">
+        <div class="error-title">fetch() returning HTML instead of JSON</div>
+        <div class="error-msg">SyntaxError: Unexpected token '&lt;', "&lt;!DOCTYPE..." is not valid JSON</div>
+        <div class="error-fix"><strong>Fix:</strong> Your server returned an HTML error page instead of JSON. Open the Network tab in DevTools, click the failed request, and read the actual response to see the real error.</div>
+      </div>
+
+      <div class="error-card info">
+        <div class="error-title">404 Not Found on API route</div>
+        <div class="error-msg">GET /api/users 404 Not Found</div>
+        <div class="error-fix"><strong>Fix:</strong> The route doesn't exist on your server. Check spelling — <code>/api/users</code> vs <code>/api/user</code>. Also make sure your server is actually running.</div>
+      </div>
+
+      <h2>Deployment Errors</h2>
+
+      <div class="error-card">
+        <div class="error-title">Build fails on Render</div>
+        <div class="error-msg">npm error: missing script: start</div>
+        <div class="error-fix"><strong>Fix:</strong> Add a start script to <code>package.json</code>:<br><code>"scripts": { "start": "node server.js" }</code></div>
+      </div>
+
+      <div class="error-card warning">
+        <div class="error-title">Environment variables missing in production</div>
+        <div class="error-msg">Cannot read properties of undefined (reading 'DB_HOST')</div>
+        <div class="error-fix"><strong>Fix:</strong> You never commit .env. Add the variables manually in Render's Environment tab. Every deployment platform has an "Environment Variables" section — add them there.</div>
+      </div>
+
+      <h2>Quick Debug Checklist</h2>
+      <ol class="steps">
+        <li>Is the server running? Check the terminal for errors.</li>
+        <li>Is the URL correct? Open it directly in the browser and check the response.</li>
+        <li>Open DevTools → Console tab. Any red errors?</li>
+        <li>Open DevTools → Network tab. Click the failing request and read the response body.</li>
+        <li>Add <code>console.log()</code> statements to narrow down where data is lost.</li>
+        <li>Check .env — is it in the right folder? Are variable names spelled exactly right?</li>
+      </ol>
+
+      <div class="callout tip"><div class="callout-icon"></div><p>You've completed all 11 modules! You now know how to build a complete website with a frontend, backend, and database — and deploy it live. The best next step is to build your own project from scratch.</p></div>
+
+      <div class="module-nav">
+        <button class="btn-nav" onclick="prevModule()">← Previous</button>
+        <span class="nav-progress">11 / 11</span>
+        <button class="btn-nav" onclick="goHome()" style="background:#10b981;color:white;border-color:#10b981">🎉 Back to Home</button>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<!-- Toast notification -->
+<div class="toast" id="toast">✓ Copied to clipboard</div>
+
+<script src="script.js"></script>
+</body>
+</html>
