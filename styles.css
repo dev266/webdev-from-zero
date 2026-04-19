@@ -378,13 +378,27 @@ code {
   font-family: 'Fira Code', 'Cascadia Code', Consolas, 'Courier New', monospace;
   color: var(--code-text);
 }
-p code, li code, td code {
+p code, li code, td code, .error-fix code, .callout code {
   background: #f1f5f9;
   color: #1e40af;
   padding: 2px 6px;
   border-radius: 4px;
   font-size: 0.85em;
   border: 1px solid #dbeafe;
+}
+
+/* Code snippet shown on its own line inside an error card */
+.error-fix code.block-code {
+  display: block;
+  margin-top: 8px;
+  padding: 10px 14px;
+  font-size: 0.82rem;
+  background: #f1f5f9;
+  color: #1e293b;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-family: 'Fira Code', Consolas, monospace;
+  white-space: pre;
 }
 
 /* Syntax highlight classes */
